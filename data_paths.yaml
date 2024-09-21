@@ -1,0 +1,4 @@
+train_path: E:/Etisalat/Projects/ML/src/assets/data/train/Train.csv
+final_test_path: E:/Etisalat/Projects/ML/src/assets/data/test/Test.csv
+
+

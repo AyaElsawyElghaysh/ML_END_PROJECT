@@ -1,0 +1,3 @@
+['remote "origin"']
+    url = s3://dvc
+    endpointurl = https://dagshub.com/ayah.elghaysh.12345/ML_END_PROJECT

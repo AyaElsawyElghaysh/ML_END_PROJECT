@@ -2,6 +2,10 @@ pandas
 numpy
 matplotlib
 seaborn
+pyyaml
+scikit-learn
+category_encoders
+eli5
 
 
 -e .
