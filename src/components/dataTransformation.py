@@ -14,7 +14,7 @@ from src.utils import save_preprocesing_pipeline_as_pk
 
 @dataclass
 class DataTransformationConfig:
-    preprocess_file_path: str = os.path.join('artifact', 'preprocess.pkl')
+    preprocess_file_path: str = os.path.join('artifact',"proprocessor.pkl")
 
 class DataTransformation:
     def __init__(self) -> None:
@@ -57,7 +57,7 @@ class DataTransformation:
                try:
                     train_df=pd.read_csv(train_path)
                     test_df=pd.read_csv(test_path)
-
+                    print("helllo")
                     logging.info("Read train and test data completed")
 
                     logging.info("Obtaining preprocessing object")
@@ -65,7 +65,7 @@ class DataTransformation:
                     preprocessing_obj=self.get_data_transformation()
 
                     target_column_name="target"
-                   # numerical_columns = ["writing_score", "reading_score"]
+                
 
                     input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
                     target_feature_train_df=train_df[target_column_name]
@@ -77,7 +77,7 @@ class DataTransformation:
                          f"Applying preprocessing object on training dataframe and testing dataframe."
                     )
 
-                    input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
+                    input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df,target_feature_train_df)
                     input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
 
                     train_arr = np.c_[
@@ -91,6 +91,8 @@ class DataTransformation:
 
                          file_path=self.data_transformation_path.preprocess_file_path,
                          obj=preprocessing_obj
+                         
+                    
 
                     )
 

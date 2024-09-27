@@ -61,7 +61,7 @@ if __name__=='__main__':
 
       xtrain,xtest= data.load_data()
       data_transformation_obj=DataTransformation()
-      data_transformation_obj.init_transformation(xtrain,xtest)
+      data_transformation_obj.initiate_data_transformation(xtrain,xtest)
 
       
     
