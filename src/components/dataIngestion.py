@@ -7,7 +7,7 @@ import os
 import yaml
 import sys
 from src.components.dataTransformation import DataTransformation
-
+from src.components.modelTranier import ModelTraining
 @dataclass
 class DataLoadingConfig:
     """
@@ -61,7 +61,10 @@ if __name__=='__main__':
 
       xtrain,xtest= data.load_data()
       data_transformation_obj=DataTransformation()
-      data_transformation_obj.initiate_data_transformation(xtrain,xtest)
+      train_arr, test_arr,_= data_transformation_obj.initiate_data_transformation(xtrain,xtest)
+      model_train=ModelTraining()
+      model_train.init_train_model(train_arr,test_arr)
+      
 
       
     
